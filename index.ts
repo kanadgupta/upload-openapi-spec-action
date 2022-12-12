@@ -30,7 +30,7 @@ type SignedUploadResponse = {
   fields: { [key: string]: string };
 };
 
-async function createSignedUpload(token: string): Promise<SignedUploadResponse> {
+export async function createSignedUpload(token: string): Promise<SignedUploadResponse> {
   const response = await fetch('https://api.stainlessapi.com/api/spec/upload', {
     method: 'POST',
     headers: {
@@ -48,7 +48,7 @@ async function createSignedUpload(token: string): Promise<SignedUploadResponse> 
   return response.json() as unknown as SignedUploadResponse;
 }
 
-async function uploadSpec(specPath: string, upload: SignedUploadResponse) {
+export async function uploadSpec(specPath: string, upload: SignedUploadResponse) {
   const { fields, url } = upload;
   const formData = new FormData();
 
@@ -73,7 +73,7 @@ async function uploadSpec(specPath: string, upload: SignedUploadResponse) {
   }
 }
 
-async function decorateSpec(specPath: string, token: string): Promise<string> {
+export async function decorateSpec(specPath: string, token: string): Promise<string> {
   info('Getting a signed upload URL...');
   const signedUpload = await createSignedUpload(token);
 

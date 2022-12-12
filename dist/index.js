@@ -11570,7 +11570,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.main = void 0;
+exports.decorateSpec = exports.uploadSpec = exports.createSignedUpload = exports.main = void 0;
 const fs_1 = __importDefault(__nccwpck_require__(7147));
 const core_1 = __nccwpck_require__(2186);
 const console_1 = __nccwpck_require__(6206);
@@ -11608,6 +11608,7 @@ function createSignedUpload(token) {
         return response.json();
     });
 }
+exports.createSignedUpload = createSignedUpload;
 function uploadSpec(specPath, upload) {
     return __awaiter(this, void 0, void 0, function* () {
         const { fields, url } = upload;
@@ -11630,6 +11631,7 @@ function uploadSpec(specPath, upload) {
         }
     });
 }
+exports.uploadSpec = uploadSpec;
 function decorateSpec(specPath, token) {
     return __awaiter(this, void 0, void 0, function* () {
         (0, console_1.info)('Getting a signed upload URL...');
@@ -11656,6 +11658,7 @@ function decorateSpec(specPath, token) {
         return response.text();
     });
 }
+exports.decorateSpec = decorateSpec;
 if (require.main === require.cache[eval('__filename')]) {
     main().catch((err) => {
         console.error(err);
