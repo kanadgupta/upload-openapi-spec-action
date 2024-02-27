@@ -31680,7 +31680,7 @@ function uploadSpecAndConfig(specPath, configPath, token, projectName) {
         if (configPath) {
             formData.set('stainlessConfig', yield (0, node_fetch_1.fileFrom)(configPath, 'text/plain'));
         }
-        const response = yield (0, node_fetch_1.default)('https://c48d-172-9-181-193.ngrok-free.app/api/spec', {
+        const response = yield (0, node_fetch_1.default)('https://staging.stainlessapi.com/api/spec', {
             method: 'POST',
             body: formData,
             headers: {
