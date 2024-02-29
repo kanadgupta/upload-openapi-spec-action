@@ -46,7 +46,7 @@ async function uploadSpecAndConfig(
     formData.set('stainlessConfig', await fileFrom(configPath, 'text/plain'));
   }
 
-  const response = await fetch('https://f625-64-78-254-128.ngrok-free.app/api/spec', {
+  const response = await fetch('https://staging.stainlessapi.com/api/spec', {
     method: 'POST',
     body: formData,
     headers: {
