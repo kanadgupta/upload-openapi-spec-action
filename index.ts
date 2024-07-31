@@ -47,6 +47,8 @@ async function uploadSpecAndConfig(
   formData.set('projectName', projectName);
   formData.set('commitMessage', commitMessage);
 
+  info(`adding commit message: ${commitMessage}`);
+
   // append a spec file
   formData.set('oasSpec', await fileFrom(specPath, 'text/plain'));
 
